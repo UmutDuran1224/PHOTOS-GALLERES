@@ -100,49 +100,63 @@
     <div class="container py-5">
         <h2 class="text-center mb-5 display-4" style="text-shadow: 0 0 10px rgba(15, 240, 252, 0.5);">BENİM GALERİM</h2>
         <div class="row" id="gallery">
-            <!-- Resim 1 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1015/400/300" alt="Gelecek Şehir" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 2 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1016/400/300" alt="Hologram Teknolojisi" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 3 -->
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1018/400/300" alt="Yapay Zeka" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 4 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1019/400/300" alt="Siberpunk" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 5 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1020/400/300" alt="Robotik" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 6 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1021/400/300" alt="Sanal Gerçeklik" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 7 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1022/400/300" alt="Uzay Kolonisi" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
 
-            <!-- Resim 8 -->
+
             <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
                 <img src="https://picsum.photos/id/1023/400/300" alt="Nöro Arayüz" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
+                <img src="https://picsum.photos/id/1024/400/300" alt="Nöro Arayüz" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
+                <img src="https://picsum.photos/id/1025/400/300" alt="Nöro Arayüz" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
+                <img src="https://picsum.photos/id/1026/400/300" alt="Nöro Arayüz" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
+            </div>
+
+            <div class="col-sm-12 col-md-6 col-lg-3 gallery-item">
+                <img src="https://picsum.photos/id/1027/400/300" alt="Nöro Arayüz" class="gallery-img" data-bs-toggle="modal" data-bs-target="#lightboxModal">
             </div>
         </div>
     </div>
 
-    <!-- Lightbox Modal -->
     <div class="modal fade" id="lightboxModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-xl">
             <div class="modal-content">
@@ -152,7 +166,6 @@
                 <div class="modal-body text-center p-0">
                     <div id="lightboxCarousel" class="carousel slide" data-bs-interval="false">
                         <div class="carousel-inner" id="carousel-inner">
-                            <!-- Resimler buraya JS ile eklenecek -->
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#lightboxCarousel" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -169,7 +182,6 @@
         </div>
     </div>
 
-    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -178,7 +190,6 @@
             const carouselInner = document.getElementById('carousel-inner');
             const imageCounter = document.querySelector('.image-counter');
 
-            // Galerideki tüm resimleri modal carousel'e ekle
             galleryImages.forEach((img, index) => {
                 const item = document.createElement('div');
                 item.className = `carousel-item ${index === 0 ? 'active' : ''}`;
@@ -190,7 +201,6 @@
             `;
                 carouselInner.appendChild(item);
 
-                // Tıklanan resme göre carousel pozisyonunu ayarla
                 img.addEventListener('click', () => {
                     const carousel = new bootstrap.Carousel('#lightboxCarousel');
                     carousel.to(index);
@@ -198,17 +208,14 @@
                 });
             });
 
-            // Carousel değiştiğinde sayacı güncelle
             document.getElementById('lightboxCarousel').addEventListener('slid.bs.carousel', function (e) {
                 updateCounter(e.to + 1, galleryImages.length);
             });
 
-            // Resim sayacını güncelleme fonksiyonu
             function updateCounter(current, total) {
                 imageCounter.textContent = `${current} / ${total}`;
             }
 
-            // Klavye ile gezinme
             document.addEventListener('keydown', function (e) {
                 const lightboxModal = document.getElementById('lightboxModal');
                 if (lightboxModal.classList.contains('show')) {
